@@ -8,6 +8,8 @@ import CheckButton from "react-validation/build/button";
 import { connect } from "react-redux";
 import { login } from "../actions/auth";
 
+import logo from '../login-img.png';
+
 const required = (value) => {
   if (!value) {
     return (
@@ -85,6 +87,7 @@ class Login extends Component {
         <div className="card bg-light text-dark">
           <h1><center>Login</center></h1>
 
+          <img src={logo} width="150" height="150" alt="logo" className="text-center mx-auto" />
 
           <Form
             onSubmit={this.handleLogin}

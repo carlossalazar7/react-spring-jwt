@@ -5,7 +5,7 @@ let url = "";
 
 class Profile extends Component {
 
-
+ 
   render() {
 
     const { user: currentUser } = this.props;
@@ -37,7 +37,7 @@ class Profile extends Component {
                     <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp" alt="avatar"
                       className="rounded-circle img-fluid" style={{ width: "150px" }} />
                     <h5 className="my-3">{currentUser.userName}</h5>
-                    <p className="text-muted mb-1">Full Stack Developer</p>
+                    <p className="text-muted mb-1">{(currentUser.roles).replace("[", "").replace("]","")}</p>
                     <p className="text-muted mb-4">Bay Area, San Francisco, CA</p>
                     <div className="d-flex justify-content-center mb-2">
                       <button type="button" className="btn btn-primary">Follow</button>
