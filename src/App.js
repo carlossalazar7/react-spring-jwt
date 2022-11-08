@@ -12,7 +12,7 @@ import { logout } from "./actions/auth";
 import { clearMessage } from "./actions/message";
 import { history } from './helpers/history';
 import EventBus from "./common/EventBus";
-import logo from './logo-siman.svg';
+// import logo from './logo-siman.svg';
 
 class App extends Component {
   constructor(props) {
@@ -61,7 +61,7 @@ class App extends Component {
         <div>
           <nav className="navbar navbar-expand navbar-dark" style={{backgroundColor: "#A93239"}}>
             <Link to={"/"} className="navbar-brand">
-            <img src={logo} width="100" height="50" />
+            {/* <img src={logo} width="100" height="50" alt="logo" /> */}
             </Link>
             <div className="navbar-nav mr-auto">
               
@@ -76,6 +76,11 @@ class App extends Component {
 
             {currentUser ? (
               <div className="navbar-nav ml-auto">
+                <li className="nav-item">
+                  <Link to={"/productos"} className="nav-link">
+                    Productos
+                  </Link>
+                </li>
                 <li className="nav-item">
                   <Link to={"/profile"} className="nav-link">
                     Profile

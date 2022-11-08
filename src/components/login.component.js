@@ -26,13 +26,13 @@ class Login extends Component {
     this.onChangePassword = this.onChangePassword.bind(this);
 
     this.state = {
-      NombreUsuario: "",
+      nombreUsuario: "",
       password: "",
       loading: false,
     };
   }
 
-  onChangeUsername(e) {
+  onChangeNombreUsuario(e) {
     this.setState({
       nombreUsuario: e.target.value,
     });
@@ -93,13 +93,13 @@ class Login extends Component {
             }}
           >
             <div className="form-group">
-              <label htmlFor="nombreUsuario">NombreUsuario</label>
+              <label htmlFor="nombreUsuario">Nombre Usuario</label>
               <Input
                 type="text"
                 className="form-control"
                 name="nombreUsuario"
                 value={this.state.nombreUsuario}
-                onChange={this.onChangenombreUsuario}
+                onChange={this.onChangeNombreUsuario}
                 validations={[required]}
               />
             </div>

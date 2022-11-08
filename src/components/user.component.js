@@ -42,10 +42,10 @@ export default class User extends Component {
 
         <div class="card bg-light text-dark">
         <h3>{this.state.content}</h3>
-        <a href="#"><i class="fa fa-dribbble"></i></a>
-        <a href="#"><i class="fa fa-twitter"></i></a>
-        <a href="#"><i class="fa fa-linkedin"></i></a>
-        <a href="#"><i class="fa fa-facebook"></i></a>
+        <a href={() => false}><i class="fa fa-dribbble"></i></a>
+        <a href={() => false}><i class="fa fa-twitter"></i></a>
+        <a href={() => false}><i class="fa fa-linkedin"></i></a>
+        <a href={() => false}><i class="fa fa-facebook"></i></a>
           </div>
      
     );
