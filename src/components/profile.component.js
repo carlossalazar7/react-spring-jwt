@@ -5,14 +5,11 @@ let url = "";
 
 class Profile extends Component {
 
- 
   render() {
 
     const { user: currentUser } = this.props;
     console.log(currentUser);
-    if (!currentUser) {
-      return <Redirect to="/login" />;
-    }
+    if (!currentUser) { return <Redirect to="/login" />; }
 
     return (
       <div>
@@ -37,7 +34,7 @@ class Profile extends Component {
                     <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp" alt="avatar"
                       className="rounded-circle img-fluid" style={{ width: "150px" }} />
                     <h5 className="my-3">{currentUser.userName}</h5>
-                    <p className="text-muted mb-1">{(currentUser.roles).replace("[", "").replace("]","")}</p>
+                    <p className="text-muted mb-1">{(currentUser.roles).replace("[", "").replace("]", "")}</p>
                     <p className="text-muted mb-4">Bay Area, San Francisco, CA</p>
                     <div className="d-flex justify-content-center mb-2">
                       <button type="button" className="btn btn-primary">Follow</button>
@@ -192,7 +189,6 @@ class Profile extends Component {
                 </div>
               </div>
             </div>
-
           </div>
         </section>
       </div>

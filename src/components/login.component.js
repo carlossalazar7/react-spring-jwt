@@ -1,13 +1,10 @@
 import React, { Component } from "react";
 import { Redirect } from 'react-router-dom';
-
 import Form from "react-validation/build/form";
 import Input from "react-validation/build/input";
 import CheckButton from "react-validation/build/button";
-
 import { connect } from "react-redux";
 import { login } from "../actions/auth";
-
 import logo from '../login-img.png';
 
 const required = (value) => {

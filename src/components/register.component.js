@@ -3,57 +3,36 @@ import Form from "react-validation/build/form";
 import Input from "react-validation/build/input";
 import CheckButton from "react-validation/build/button";
 import { isEmail } from "validator";
-
 import { connect } from "react-redux";
 import { register } from "../actions/auth";
 
 const required = (value) => {
   if (!value) {
-    return (
-      <div className="alert alert-danger" role="alert">
-        This field is required!
-      </div>
-    );
+    return (<div className="alert alert-danger" role="alert">This field is required!</div>);
   }
 };
 
 const email = (value) => {
   if (!isEmail(value)) {
-    return (
-      <div className="alert alert-danger" role="alert">
-        This is not a valid email.
-      </div>
-    );
+    return (<div className="alert alert-danger" role="alert">This is not a valid email.</div>);
   }
 };
 
 const vNombreUsuario = (value) => {
   if (value.length < 3 || value.length > 20) {
-    return (
-      <div className="alert alert-danger" role="alert">
-        The username must be between 3 and 20 characters.
-      </div>
-    );
+    return (<div className="alert alert-danger" role="alert">The username must be between 3 and 20 characters.</div>);
   }
 };
 
 const vNombre = (value) => {
   if (value.length < 3 || value.length > 20) {
-    return (
-      <div className="alert alert-danger" role="alert">
-        The name must be between 3 and 20 characters.
-      </div>
-    );
+    return (<div className="alert alert-danger" role="alert">The name must be between 3 and 20 characters.</div>);
   }
 };
 
 const vpassword = (value) => {
   if (value.length < 6 || value.length > 40) {
-    return (
-      <div className="alert alert-danger" role="alert">
-        The password must be between 6 and 40 characters.
-      </div>
-    );
+    return (<div className="alert alert-danger" role="alert">The password must be between 6 and 40 characters.</div>);
   }
 };
 
@@ -67,7 +46,7 @@ class Register extends Component {
     this.onChangePassword = this.onChangePassword.bind(this);
 
     this.state = {
-      nombre:"",
+      nombre: "",
       nombreUsuario: "",
       email: "",
       password: "",
@@ -76,27 +55,19 @@ class Register extends Component {
   }
 
   onChangeNombre(e) {
-    this.setState({
-      nombre: e.target.value,
-    });
+    this.setState({ nombre: e.target.value, });
   }
 
   onChangeNombreUsuario(e) {
-    this.setState({
-      nombreUsuario: e.target.value,
-    });
+    this.setState({ nombreUsuario: e.target.value, });
   }
 
   onChangeEmail(e) {
-    this.setState({
-      email: e.target.value,
-    });
+    this.setState({ email: e.target.value, });
   }
 
   onChangePassword(e) {
-    this.setState({
-      password: e.target.value,
-    });
+    this.setState({ password: e.target.value, });
   }
 
   handleRegister(e) {
@@ -133,66 +104,30 @@ class Register extends Component {
 
       <div className="col-md-12">
         <div className="card bg-light text-dark">
-
           <h1><center>User Registration </center></h1>
-
-
-          <Form
-            onSubmit={this.handleRegister}
-            ref={(c) => {
-              this.form = c;
-            }}
-          >
+          <Form onSubmit={this.handleRegister} ref={(c) => { this.form = c; }} >
             {!this.state.successful && (
               <div>
                 <div className="form-group">
                   <label htmlFor="nombre">nombre</label>
-                  <Input
-                    type="text"
-                    className="form-control"
-                    name="nombre"
-                    value={this.state.nombre}
-                    onChange={this.onChangeNombre}
-                    validations={[required, vNombre]}
-                  />
+                  <Input type="text" className="form-control" name="nombre" value={this.state.nombre}
+                    onChange={this.onChangeNombre} validations={[required, vNombre]} />
                 </div>
-
                 <div className="form-group">
                   <label htmlFor="nombreUsuario">nombreUsuario</label>
-                  <Input
-                    type="text"
-                    className="form-control"
-                    name="nombreUsuario"
-                    value={this.state.nombreUsuario}
-                    onChange={this.onChangeNombreUsuario}
-                    validations={[required, vNombreUsuario]}
-                  />
+                  <Input type="text" className="form-control" name="nombreUsuario" value={this.state.nombreUsuario}
+                    onChange={this.onChangeNombreUsuario} validations={[required, vNombreUsuario]} />
                 </div>
-
                 <div className="form-group">
                   <label htmlFor="email">Email</label>
-                  <Input
-                    type="text"
-                    className="form-control"
-                    name="email"
-                    value={this.state.email}
-                    onChange={this.onChangeEmail}
-                    validations={[required, email]}
-                  />
+                  <Input type="text" className="form-control" name="email" value={this.state.email}
+                    onChange={this.onChangeEmail} validations={[required, email]} />
                 </div>
-
                 <div className="form-group">
                   <label htmlFor="password">Password</label>
-                  <Input
-                    type="password"
-                    className="form-control"
-                    name="password"
-                    value={this.state.password}
-                    onChange={this.onChangePassword}
-                    validations={[required, vpassword]}
-                  />
+                  <Input type="password" className="form-control" name="password" value={this.state.password}
+                    onChange={this.onChangePassword} validations={[required, vpassword]} />
                 </div>
-
                 <div className="form-group">
                   <button className="btn btn-dark btn-block">Sign Up</button>
                 </div>
@@ -206,12 +141,7 @@ class Register extends Component {
                 </div>
               </div>
             )}
-            <CheckButton
-              style={{ display: "none" }}
-              ref={(c) => {
-                this.checkBtn = c;
-              }}
-            />
+            <CheckButton style={{ display: "none" }} ref={(c) => { this.checkBtn = c; }} />
           </Form>
         </div>
       </div>
@@ -221,9 +151,7 @@ class Register extends Component {
 
 function mapStateToProps(state) {
   const { message } = state.message;
-  return {
-    message,
-  };
+  return { message, };
 }
 
 export default connect(mapStateToProps)(Register);
